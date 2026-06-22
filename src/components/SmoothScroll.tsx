@@ -14,6 +14,13 @@ export default function SmoothScroll({ children, enabled, reducedMotion }: Props
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
+    // Always start at the top on mount / refresh.
+    // 'manual' stops the browser restoring the previous scroll position.
+    if (typeof window !== "undefined") {
+      history.scrollRestoration = "manual";
+      window.scrollTo(0, 0);
+    }
+
     const lenis = new Lenis({
       lerp: reducedMotion ? 1 : 0.085,
       smoothWheel: !reducedMotion,

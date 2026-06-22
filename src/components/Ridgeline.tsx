@@ -60,7 +60,7 @@ export default function Ridgeline() {
 
       <DroneTooltip hover={hover} />
       <HUD />
-      <SoundToggle />
+      <SoundToggle autoPlayWhenReady={started} />
 
       <SmoothScroll enabled={started} reducedMotion={profile.reducedMotion}>
         <Sections started={started} />

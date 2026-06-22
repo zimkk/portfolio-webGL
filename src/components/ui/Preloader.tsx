@@ -25,10 +25,11 @@ export default function Preloader({ ready, onDone }: Props) {
       if (v >= 99.4 && ready && !doneRef.current) {
         doneRef.current = true;
         setCount(100);
+        // Wait 1.2s before automatically fading out
         setTimeout(() => {
           setGone(true);
           setTimeout(onDone, 750);
-        }, 350);
+        }, 1200);
         return;
       }
       raf = requestAnimationFrame(loop);
@@ -41,6 +42,7 @@ export default function Preloader({ ready, onDone }: Props) {
     <AnimatePresence>
       {!gone && (
         <motion.div
+          key="preloader-wrapper"
           className="fixed inset-0 z-[180] flex flex-col justify-end overflow-hidden"
           style={{ background: "var(--void)" }}
           exit={{ y: "-100%" }}
