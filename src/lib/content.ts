@@ -182,11 +182,11 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    id: "minecraft",
-    name: "Browser Minecraft Clone",
+    id: "thehomeclub",
+    name: "The Home Club",
     blurb:
-      "A voxel world in the browser — proof he builds the kind of WebGL this very site runs on. MIT open source.",
-    tags: ["TypeScript", "Three.js", "Vite", "MIT"],
+      "Sports club platform for memberships, programs, and community engagement with a polished public-facing web experience.",
+    tags: ["React", "Web App", "Sports", "Full Stack"],
     href: "https://github.com/zimkk",
     featured: true,
   },
@@ -194,46 +194,41 @@ export const PROJECTS: Project[] = [
     id: "n8nhub",
     name: "N8NHUB",
     blurb:
-      "A curated library of 2,000+ n8n workflow templates for automation builders.",
-    tags: ["n8n", "Automation", "Library"],
+      "Curated library of 2000+ n8n workflow templates for automation builders, with searchable categories and ready-to-use integrations.",
+    tags: ["n8n", "Automation", "Workflows", "No-Code"],
     href: "https://n8nhub.hassannazir.dev",
   },
   {
     id: "speedyinfluencer",
     name: "SpeedyInfluencer",
-    blurb: "Influencer-marketing SaaS connecting brands with creators.",
-    tags: ["SaaS", "Marketing", "Full-Stack"],
+    blurb:
+      "Influencer marketing platform connecting brands and creators with campaign tools, analytics, and streamlined collaboration workflows.",
+    tags: ["React", "Marketing", "SaaS", "Full Stack"],
     href: "https://speedyinfluencer.com",
+  },
+  {
+    id: "smartfurs",
+    name: "SmartFurs",
+    blurb:
+      "E-commerce platform for purebred puppies with breed listings, buyer discovery, and a modern storefront experience.",
+    tags: ["React", "E-commerce", "Vercel", "Web App"],
+    href: "https://github.com/zimkk",
   },
   {
     id: "fooocus",
     name: "Fooocus",
     blurb:
-      "SDXL image-generation tooling — prompt craft and generative pipelines. Open source.",
-    tags: ["GenAI", "SDXL", "Python"],
+      "SDXL-based image generation tool focused on prompting and generating high-quality visuals with a streamlined, minimal setup.",
+    tags: ["Python", "SDXL", "GenAI", "Gradio"],
     href: "https://github.com/zimkk/Fooocus",
   },
   {
-    id: "legal-summarizer",
-    name: "Legal Doc Summarizer",
+    id: "erdman-ny-county",
+    name: "erdman-ny-county",
     blurb:
-      "Long-form legal-document summarization with fine-tuned LLMs. Open source.",
-    tags: ["LLM", "Fine-tuning", "RAG"],
-    href: "https://github.com/zimkk/legal-Document-Summerizer",
-  },
-  {
-    id: "anomaly",
-    name: "Anomaly Detection System",
-    blurb: "Network anomaly detection built with data science and ML. Open source.",
-    tags: ["Data Science", "ML", "Python"],
-    href: "https://github.com/zimkk/Anomaly-Detection-System",
-  },
-  {
-    id: "genai",
-    name: "GenAI",
-    blurb: "A collection of generative-AI prototypes and implementations. Open source.",
-    tags: ["GenAI", "Prototypes", "Python"],
-    href: "https://github.com/zimkk/genAi",
+      "Backend-focused project with Python services and structured workflows for production-style application logic.",
+    tags: ["Python", "Backend", "APIs", "Automation"],
+    href: "https://github.com/zimkk",
   },
 ];
 
