@@ -11,6 +11,7 @@ import Swarm from "./Swarm";
 import Roadside from "./Roadside";
 import Rig from "./Rig";
 import PostFX from "./PostFX";
+import FogPlanes from "./FogPlanes";
 import type { DeviceProfile } from "@/lib/device";
 
 // Image-based lighting baked from in-scene light shapes (no external HDR):
@@ -55,6 +56,7 @@ export default function Experience({ profile, onDroneHover, onReady }: Props) {
         <Atmosphere />
         <Terrain segments={profile.terrainSegments} />
         <Road />
+        <FogPlanes />
         <Roadside />
         {!profile.reducedMotion && <Swarm onHover={onDroneHover} />}
         <Rig reducedMotion={profile.reducedMotion} />

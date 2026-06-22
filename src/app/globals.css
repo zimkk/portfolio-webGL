@@ -144,3 +144,58 @@ html.lenis body {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* ============================================================
+   FOG OVERLAYS — cinematic ground mist & depth layers
+   All pointer-events: none so they never block UI.
+   ============================================================ */
+
+/* Low-lying ground mist pool — bottom of viewport */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background:
+    /* ground fog pool */
+    linear-gradient(
+      to top,
+      rgba(8, 12, 28, 0.72) 0%,
+      rgba(8, 12, 28, 0.38) 12%,
+      rgba(8, 12, 28, 0.10) 28%,
+      transparent 48%
+    ),
+    /* top vignette */
+    linear-gradient(
+      to bottom,
+      rgba(5, 6, 10, 0.55) 0%,
+      transparent 18%
+    );
+  animation: fogBreath 9s ease-in-out infinite alternate;
+}
+
+/* Side-edge depth haze — mountains fade into the sides */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background:
+    linear-gradient(
+      to right,
+      rgba(6, 9, 20, 0.55) 0%,
+      transparent 22%,
+      transparent 78%,
+      rgba(6, 9, 20, 0.55) 100%
+    );
+  animation: fogBreath 12s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes fogBreath {
+  0%   { opacity: 0.85; }
+  50%  { opacity: 1.0;  }
+  100% { opacity: 0.78; }
+}
+

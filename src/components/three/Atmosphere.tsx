@@ -77,7 +77,7 @@ export default function Atmosphere() {
   );
 
   useMemo(() => {
-    scene.fog = new THREE.FogExp2(FOG_COLD.getHex(), 0.0072);
+    scene.fog = new THREE.FogExp2(FOG_COLD.getHex(), 0.011);
   }, [scene]);
 
   useFrame((state) => {
@@ -99,7 +99,7 @@ export default function Atmosphere() {
 
     const fog = scene.fog as THREE.FogExp2;
     fog.color.copy(FOG_COLD).lerp(FOG_WARM, w);
-    fog.density = lerp(0.0072, 0.0036, w);
+    fog.density = lerp(0.011, 0.0048, w);
 
     // directional light arrives from the real sun direction
     if (sun.current) {

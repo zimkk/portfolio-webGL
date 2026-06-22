@@ -3,41 +3,130 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
 // ─── Playlist ────────────────────────────────────────────────────────────────
+// DEFAULT_TRACK — first song, low volume by default.
+const DEFAULT_TRACK_IDX = 0;
+const DEFAULT_VOLUME    = 0.10; // 10%
+
 const PLAYLIST = [
   {
-    id: "lofi-1",
-    title: "Midnight Highway",
-    artist: "Lofi Chill",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-    duration: "3:42",
+    id: "01",
+    title: "Mujhse Mohabbat Ka",
+    artist: "Classic Bollywood",
+    src: "/audio/01_Mujhse_Mohabbat_Ka_SpotiDost.mp3",
+    duration: "5:50",
+    startTime: 120,
   },
   {
-    id: "lofi-2",
-    title: "Empty Roads",
-    artist: "Ambient Drive",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-    duration: "4:11",
+    id: "02",
+    title: "Tumsa Koi Pyaara",
+    artist: "Classic Bollywood",
+    src: "/audio/02_Tumsa_Koi_Pyaara_SpotiDost.mp3",
+    duration: "5:54",
+    startTime: 0,
   },
   {
-    id: "lofi-3",
-    title: "Mountain Pass",
-    artist: "Drift & Hum",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-    duration: "3:58",
+    id: "03",
+    title: "Pehli Pehli Baar Mohabbat",
+    artist: "Sirf Tum",
+    src: "/audio/03_Pehli_Pehli_Baar_Mohabbat_Ki_Hai_From_Sirf_Tum_SpotiDost.mp3",
+    duration: "7:34",
+    startTime: 0,
   },
   {
-    id: "lofi-4",
-    title: "Passing Lights",
-    artist: "NightRider",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
-    duration: "5:02",
+    id: "04",
+    title: "Saaton Janam Main Tere",
+    artist: "Classic Bollywood",
+    src: "/audio/04_Saaton_Janam_Main_Tere_SpotiDost.mp3",
+    duration: "5:55",
+    startTime: 0,
   },
   {
-    id: "lofi-5",
-    title: "Diesel Dreams",
-    artist: "Open Throttle",
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
-    duration: "4:28",
+    id: "05",
+    title: "Tumhein Dekhen Meri Aankhen",
+    artist: "Classic Bollywood",
+    src: "/audio/05_Tumhein_Dekhen_Meri_Aankhen_SpotiDost.mp3",
+    duration: "7:09",
+    startTime: 0,
+  },
+  {
+    id: "06",
+    title: "Tumhein Apna Banane Ki Kasam",
+    artist: "Classic Bollywood",
+    src: "/audio/06_Tumhein_Apna_Banane_Ki_Kasam_Khai_Hai_SpotiDost.mp3",
+    duration: "6:12",
+    startTime: 0,
+  },
+  {
+    id: "07",
+    title: "Raah Mein Unse Mulaqat",
+    artist: "Classic Bollywood",
+    src: "/audio/07_Raah_Mein_Unse_Mulaqat_SpotiDost.mp3",
+    duration: "8:53",
+    startTime: 0,
+  },
+  {
+    id: "08",
+    title: "Tu Jo Hans Hans Ke",
+    artist: "Raja Bhaiya",
+    src: "/audio/08_Tu_Jo_Hans_Hans_Ke_-_From_Raja_Bhaiya_SpotiDost.mp3",
+    duration: "5:07",
+    startTime: 0,
+  },
+  {
+    id: "09",
+    title: "Kahin Mujhe Pyar Hua",
+    artist: "Classic Bollywood",
+    src: "/audio/09_Kahin_Mujhe_Pyar_Hua_Toh_Nahin_SpotiDost.mp3",
+    duration: "7:50",
+    startTime: 0,
+  },
+  {
+    id: "10",
+    title: "Dil Kehta Hai",
+    artist: "Akele Hum Akele Tum",
+    src: "/audio/10_Dil_Kehta_Hai_From_Akele_Hum_Akele_Tum_SpotiDost.mp3",
+    duration: "7:26",
+    startTime: 0,
+  },
+  {
+    id: "11",
+    title: "Chori Chori Dil Tera",
+    artist: "Classic Bollywood",
+    src: "/audio/11_Chori_Chori_Dil_Tera_SpotiDost.mp3",
+    duration: "9:55",
+    startTime: 0,
+  },
+  {
+    id: "12",
+    title: "Is Tarah Aashiqui Ka",
+    artist: "Kumar Sanu",
+    src: "/audio/12_Is_Tarah_Aashiqui_Ka_-_Kumar_Sanu_Version_SpotiDost.mp3",
+    duration: "8:05",
+    startTime: 0,
+  },
+  {
+    id: "13",
+    title: "Kitna Haseen Chehra",
+    artist: "Dilwale",
+    src: "/audio/13_Kitna_Haseen_Chehra_From_Dilwale_SpotiDost.mp3",
+    duration: "5:59",
+    startTime: 0,
+  },
+  {
+    id: "14",
+    title: "Dil Cheer Ke Dekh",
+    artist: "Classic Bollywood",
+    src: "/audio/14_Dil_Cheer_Ke_Dekh_SpotiDost.mp3",
+    duration: "5:37",
+    startTime: 0,
+  },
+  {
+    id: "15",
+    title: "Pucho Zara Pucho",
+    artist: "Classic Bollywood",
+    src: "/audio/15_Pucho_Zara_Pucho_SpotiDost.mp3",
+    duration: "6:44",
+    startTime: 0,
   },
 ];
 
@@ -78,11 +167,12 @@ function fmtTime(s: number) {
 export default function SoundToggle() {
   const [open, setOpen] = useState(false);
   const [playing, setPlaying] = useState(false);
-  const [trackIdx, setTrackIdx] = useState(0);
+  const [trackIdx, setTrackIdx] = useState(DEFAULT_TRACK_IDX);
   const [progress, setProgress] = useState(0); // 0-1
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(0.6);
+  const [volume, setVolume] = useState(DEFAULT_VOLUME);
+  const autoplayedRef = useRef(false); // fire only once
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const rafRef = useRef(0);
@@ -104,10 +194,29 @@ export default function SoundToggle() {
   const loadTrack = useCallback(
     (idx: number, autoPlay = true) => {
       const a = getAudio();
-      a.src = PLAYLIST[idx].src;
+      const track = PLAYLIST[idx];
+      a.src = track.src;
       a.load();
+
+      // seek to startTime once metadata is ready
+      if (track.startTime > 0) {
+        const onCanPlay = () => {
+          a.currentTime = track.startTime;
+          a.removeEventListener("canplay", onCanPlay);
+        };
+        a.addEventListener("canplay", onCanPlay);
+      }
+
       if (autoPlay) {
-        a.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+        // play after a brief moment (gives canplay time to fire first)
+        const tryPlay = () => {
+          a.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+        };
+        if (track.startTime > 0) {
+          a.addEventListener("canplay", tryPlay, { once: true });
+        } else {
+          a.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+        }
       }
     },
     [getAudio]
@@ -154,6 +263,29 @@ export default function SoundToggle() {
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  // ── Autoplay on first user gesture (browsers block autoplay without it) ──
+  useEffect(() => {
+    const trigger = () => {
+      if (autoplayedRef.current) return;
+      autoplayedRef.current = true;
+      // remove all listeners immediately
+      ["click", "keydown", "touchstart", "scroll"].forEach((ev) =>
+        document.removeEventListener(ev, trigger)
+      );
+      loadTrack(DEFAULT_TRACK_IDX, true);
+    };
+
+    ["click", "keydown", "touchstart", "scroll"].forEach((ev) =>
+      document.addEventListener(ev, trigger, { once: true, passive: true })
+    );
+    return () => {
+      ["click", "keydown", "touchstart", "scroll"].forEach((ev) =>
+        document.removeEventListener(ev, trigger)
+      );
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // ── Cleanup ──
@@ -216,6 +348,8 @@ export default function SoundToggle() {
         }
         .playlist-dropdown {
           animation: slideUp 0.22s cubic-bezier(0.22,1,0.36,1) forwards;
+          overflow: hidden;
+          border-radius: 16px;
         }
         @keyframes slideUp {
           from { opacity: 0; transform: translateY(12px) scale(0.97); }
@@ -223,6 +357,10 @@ export default function SoundToggle() {
         }
         .track-row:hover .track-row-bg { opacity: 1; }
         .progress-bar:hover { height: 6px !important; }
+        .track-list::-webkit-scrollbar { width: 4px; }
+        .track-list::-webkit-scrollbar-track { background: transparent; }
+        .track-list::-webkit-scrollbar-thumb { background: rgba(0,255,240,0.2); border-radius: 4px; }
+        .track-list::-webkit-scrollbar-thumb:hover { background: rgba(0,255,240,0.4); }
       `}</style>
 
       <div ref={containerRef} className="pointer-events-auto fixed bottom-5 right-5 z-[120]">
@@ -230,7 +368,7 @@ export default function SoundToggle() {
         {/* ── Dropdown ── */}
         {open && (
           <div
-            className="playlist-dropdown absolute bottom-[calc(100%+10px)] right-0 w-[300px] overflow-hidden rounded-2xl"
+            className="playlist-dropdown absolute bottom-[calc(100%+10px)] right-0 w-[300px] rounded-2xl"
             style={{
               background: "rgba(8,8,14,0.92)",
               border: "1px solid rgba(0,255,240,0.15)",
@@ -338,12 +476,18 @@ export default function SoundToggle() {
               style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}
             >
               <p className="mono text-[9px] uppercase tracking-[0.25em]" style={{ color: "rgba(0,255,240,0.4)" }}>
-                🚛 Truck Driver — Playlist
+                🎬 Truck Driver — Playlist
               </p>
             </div>
 
             {/* Track list */}
-            <div className="max-h-[200px] overflow-y-auto" style={{ scrollbarWidth: "none" }}>
+            <div
+              className="track-list max-h-[220px] overflow-y-scroll"
+              style={{
+                scrollbarWidth: "thin",
+                scrollbarColor: "rgba(0,255,240,0.25) transparent",
+              }}
+            >
               {PLAYLIST.map((t, i) => (
                 <div
                   key={t.id}
