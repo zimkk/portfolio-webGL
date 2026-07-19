@@ -3,8 +3,8 @@
 import { useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { ride, lerp } from "@/lib/ride";
 import { Z_START, Z_END, floorY, roadX } from "@/lib/world";
+import { sky } from "@/lib/sky";
 
 // ─── Fog-plane shader ────────────────────────────────────────────────────────
 // Renders a large flat plane as a soft volumetric mist slab.
@@ -156,15 +156,10 @@ function FogSlab({ layer, timeRef }: { layer: Layer; timeRef: React.MutableRefOb
     meshRef.current.position.y =
       baseY + Math.sin(timeRef.current * layer.driftSpeed * 0.6 + layer.z) * 0.6;
 
-    // opacity breathes with scroll warmth (ride.progress drives warm phase)
-    const warm = Math.max(0, (ride.progress - 0.55) / 0.45);
-    const warmScale = 1 - warm * 0.35;        // mist thins as we crest into dawn
+    // mist thins as the morning arrives; colour tracks the day-cycle fog
+    const warmScale = 0.62 + sky.stars * 0.38;
     matRef.current.uniforms.uOpacity.value = layer.opacity * warmScale;
-
-    // colour warms subtly
-    const cold = new THREE.Color("#0d1528");
-    const warm2 = new THREE.Color("#2a1a22");
-    matRef.current.uniforms.uColor.value.copy(cold).lerp(warm2, ride.progress * 0.6);
+    matRef.current.uniforms.uColor.value.copy(sky.fog).multiplyScalar(1.2);
   });
 
   return (

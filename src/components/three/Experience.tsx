@@ -9,6 +9,7 @@ import Terrain from "./Terrain";
 import Road from "./Road";
 import Swarm from "./Swarm";
 import Roadside from "./Roadside";
+import WorldLife from "./WorldLife";
 import Rig from "./Rig";
 import PostFX from "./PostFX";
 import FogPlanes from "./FogPlanes";
@@ -58,6 +59,7 @@ export default function Experience({ profile, onDroneHover, onReady }: Props) {
         <Road />
         <FogPlanes />
         <Roadside />
+        {!profile.reducedMotion && <WorldLife />}
         {!profile.reducedMotion && <Swarm onHover={onDroneHover} />}
         <Rig reducedMotion={profile.reducedMotion} />
       </Suspense>

@@ -5,7 +5,7 @@ import { useFrame, ThreeEvent } from "@react-three/fiber";
 import * as THREE from "three";
 import { DRONES } from "@/lib/content";
 import { smoothstep } from "@/lib/ride";
-import { groundPoint } from "@/lib/world";
+import { SWARM_ANCHOR } from "@/lib/world";
 
 type Props = {
   onHover: (index: number | null, screen: { x: number; y: number }) => void;
@@ -14,7 +14,7 @@ type Props = {
 // The swarm lives at a fixed point over the pass. It always exists — as the
 // rider climbs toward it the formation brightens and the delegation links
 // resolve; once past, it recedes behind. No spawning.
-const ANCHOR = groundPoint(0.34, -2).add(new THREE.Vector3(0, 13, 0));
+const ANCHOR = SWARM_ANCHOR;
 
 const _v = new THREE.Vector3();
 const _seek = new THREE.Vector3();
@@ -89,6 +89,33 @@ export default function Swarm({ onHover }: Props) {
     []
   );
 
+  // data packets — bright pulses running the delegation links
+  const packetRef = useRef<THREE.InstancedMesh>(null);
+  const packetDummy = useMemo(() => new THREE.Object3D(), []);
+  const packets = useMemo(
+    () =>
+      DRONES.filter((d) => !d.lead).map((_, i) => ({
+        t: Math.random(), // position along the link
+        speed: 0.5 + Math.random() * 0.7,
+        dir: i % 2 === 0 ? 1 : -1, // task out / result back
+        target: i + 1, // agent index (lead is 0)
+      })),
+    []
+  );
+  const packetGeo = useMemo(() => new THREE.SphereGeometry(0.09, 8, 8), []);
+  const packetMat = useMemo(
+    () =>
+      new THREE.MeshBasicMaterial({
+        color: "#bff2ff",
+        transparent: true,
+        opacity: 0.9,
+        toneMapped: false,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+      }),
+    []
+  );
+
   useFrame((state, delta) => {
     const dt = Math.min(delta, 0.05);
     const cam = state.camera;
@@ -129,6 +156,8 @@ export default function Swarm({ onHover }: Props) {
           .sub(a.pos)
           .multiplyScalar(0.01 * near);
         a.vel.add(_seek).add(_attract);
+        // drag — without it the spring never settles and the flock balloons
+        a.vel.multiplyScalar(Math.max(0, 1 - 2.4 * dt));
       }
       a.vel.clampLength(0, a.lead ? 5 : 9);
       a.pos.addScaledVector(a.vel, dt);
@@ -164,6 +193,29 @@ export default function Swarm({ onHover }: Props) {
       linkMat.opacity = 0.06 + near * 0.5;
     }
     if (lightRef.current) lightRef.current.intensity = near * 5;
+
+    // packets pulse along the links — only worth the work when visible
+    const pm = packetRef.current;
+    if (pm) {
+      pm.visible = near > 0.03;
+      if (pm.visible) {
+        packetMat.opacity = 0.25 + near * 0.75;
+        for (let i = 0; i < packets.length; i++) {
+          const pk = packets[i];
+          pk.t += dt * pk.speed;
+          if (pk.t > 1) pk.t -= 1;
+          const f = pk.dir > 0 ? pk.t : 1 - pk.t;
+          const to = agents[pk.target].pos;
+          _v.copy(lead.pos).lerp(to, f);
+          const pulse = 0.7 + Math.sin(pk.t * Math.PI) * 0.6;
+          packetDummy.position.copy(_v);
+          packetDummy.scale.setScalar(pulse);
+          packetDummy.updateMatrix();
+          pm.setMatrixAt(i, packetDummy.matrix);
+        }
+        pm.instanceMatrix.needsUpdate = true;
+      }
+    }
   });
 
   const enter = (i: number) => (e: ThreeEvent<PointerEvent>) => {
@@ -198,6 +250,11 @@ export default function Swarm({ onHover }: Props) {
         );
       })}
       <lineSegments ref={linksRef} geometry={linkGeo} material={linkMat} />
+      <instancedMesh
+        ref={packetRef}
+        args={[packetGeo, packetMat, packets.length]}
+        frustumCulled={false}
+      />
       <pointLight ref={lightRef} color="#6b8aff" intensity={0} distance={26} decay={2} />
     </group>
   );

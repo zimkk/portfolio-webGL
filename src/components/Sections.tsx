@@ -499,14 +499,29 @@ function HorizonContent() {
         </div>
       </Reveal>
 
-      <footer className="mono absolute bottom-6 flex items-center gap-2 text-[10px] tracking-widest" style={{ color: "var(--muted)" }}>
-        <motion.span
-          className="inline-block h-1.5 w-1.5 rounded-full"
-          style={{ background: "var(--rose)" }}
-          animate={{ opacity: [1, 0.2, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        />
-        © {new Date().getFullYear()} Hassan Nazir · Islamabad, PK
+      <footer className="absolute bottom-6 flex flex-col items-center gap-1.5">
+        <div className="mono flex items-center gap-2 text-[10px] tracking-widest" style={{ color: "var(--muted)" }}>
+          <motion.span
+            className="inline-block h-1.5 w-1.5 rounded-full"
+            style={{ background: "var(--rose)" }}
+            animate={{ opacity: [1, 0.2, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+          © {new Date().getFullYear()} Hassan Nazir · Islamabad, PK
+        </div>
+        <div className="mono text-[9px] tracking-wide" style={{ color: "rgba(138,144,166,0.6)" }}>
+          “Honda Shadow RS 2010” by{" "}
+          <a
+            href="https://sketchfab.com/Alex.Ka."
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="OPEN"
+            className="underline-offset-2 hover:text-[var(--cyan)] hover:underline"
+          >
+            Alex.Ka.
+          </a>{" "}
+          · CC-BY-NC-ND 4.0
+        </div>
       </footer>
     </>
   );

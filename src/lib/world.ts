@@ -112,3 +112,9 @@ export const SUN_POS = new THREE.Vector3(roadX(Z_END), floorY(Z_END) + 26, Z_END
 // Parked bike at the rider overlook — on the road shoulder, slightly ahead
 // of mid-rider so the camera frames it as it climbs past.
 export const BIKE_POS = groundPoint(0.875, 5, new THREE.Vector3());
+
+// The swarm formation hovers over the pass at the swarm chapter — shared by
+// the flock itself and the camera set piece that lifts off the road to meet it.
+export const SWARM_ANCHOR = groundPoint(0.34, -17, new THREE.Vector3()).add(
+  new THREE.Vector3(0, 15, 0)
+);
