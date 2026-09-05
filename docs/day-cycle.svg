@@ -1,0 +1,123 @@
+<svg viewBox="0 0 860 190" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text { font-family: ui-monospace, 'SFMono-Regular', 'Courier New', monospace; }
+    </style>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#060810"/>
+      <stop offset="100%" stop-color="#090e23"/>
+    </linearGradient>
+    <!-- Sky colour spectrum across keyframes -->
+    <linearGradient id="skySpec" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#010206"/>   <!-- deep night -->
+      <stop offset="12%"  stop-color="#010510"/>   <!-- astronomical -->
+      <stop offset="25%"  stop-color="#060b20"/>   <!-- nautical -->
+      <stop offset="38%"  stop-color="#08102a"/>   <!-- swarm -->
+      <stop offset="50%"  stop-color="#0d1540"/>   <!-- civil / skills -->
+      <stop offset="60%"  stop-color="#10204a"/>   <!-- pre-sunrise / vel -->
+      <stop offset="72%"  stop-color="#1a1238"/>   <!-- SUNRISE -->
+      <stop offset="84%"  stop-color="#4a2414"/>   <!-- golden morning -->
+      <stop offset="100%" stop-color="#f8880a"/>   <!-- horizon -->
+    </linearGradient>
+  </defs>
+
+  <rect width="860" height="190" fill="url(#bg)" rx="12"/>
+  <rect width="860" height="190" fill="none" stroke="rgba(91,127,255,0.15)" stroke-width="1" rx="12"/>
+
+  <!-- Title -->
+  <text x="430" y="24" text-anchor="middle" font-size="10.5" letter-spacing="4"
+    fill="#5b7fff" opacity="0.9">DAY-CYCLE  ·  9 KEYFRAMES  ·  lib/sky.ts</text>
+
+  <!-- Sky spectrum bar -->
+  <rect x="32" y="36" width="796" height="36" rx="4" fill="url(#skySpec)"/>
+  <!-- Thin top star-sheen -->
+  <rect x="32" y="36" width="796" height="12" rx="4"
+    fill="url(#skySpec)" opacity="0.3"/>
+
+  <!-- Sun position on bar (p=0.77) = x=32 + 0.77*796 ≈ 645 -->
+  <circle cx="645" cy="54" r="7" fill="#ffcc88" opacity="0.92" filter="none"/>
+  <circle cx="645" cy="54" r="14" fill="rgba(255,200,100,0.2)"/>
+
+  <!-- Keyframe ticks + labels -->
+  <!-- p=0: deep night -->
+  <line x1="32"  y1="72" x2="32"  y2="84" stroke="rgba(91,127,255,0.5)" stroke-width="1"/>
+  <text x="32"  y="98"  text-anchor="middle" font-size="8.5" fill="#9aa0b8">deep night</text>
+  <text x="32"  y="110" text-anchor="middle" font-size="8"   fill="rgba(91,127,255,0.55)">p=0</text>
+
+  <!-- p=0.11: astronomical -->
+  <line x1="120" y1="72" x2="120" y2="82" stroke="rgba(91,127,255,0.4)" stroke-width="0.8"/>
+  <text x="120" y="98"  text-anchor="middle" font-size="8.5" fill="#9aa0b8">astron.</text>
+  <text x="120" y="110" text-anchor="middle" font-size="8"   fill="rgba(91,127,255,0.55)">0.11</text>
+
+  <!-- p=0.3: astronomical (second) -->
+  <line x1="271" y1="72" x2="271" y2="82" stroke="rgba(91,127,255,0.4)" stroke-width="0.8"/>
+  <text x="271" y="98"  text-anchor="middle" font-size="8.5" fill="#9aa0b8">astro II</text>
+  <text x="271" y="110" text-anchor="middle" font-size="8"   fill="rgba(91,127,255,0.55)">0.30</text>
+
+  <!-- p=0.45: nautical / swarm -->
+  <line x1="390" y1="72" x2="390" y2="82" stroke="rgba(127,233,255,0.4)" stroke-width="0.8"/>
+  <text x="390" y="98"  text-anchor="middle" font-size="8.5" fill="#7fe9ff">nautical</text>
+  <text x="390" y="110" text-anchor="middle" font-size="8"   fill="rgba(127,233,255,0.55)">0.45</text>
+
+  <!-- p=0.57: civil / skills -->
+  <line x1="485" y1="72" x2="485" y2="82" stroke="rgba(91,127,255,0.4)" stroke-width="0.8"/>
+  <text x="485" y="98"  text-anchor="middle" font-size="8.5" fill="#9aa0b8">civil</text>
+  <text x="485" y="110" text-anchor="middle" font-size="8"   fill="rgba(91,127,255,0.55)">0.57</text>
+
+  <!-- p=0.68: pre-sunrise / velocity -->
+  <line x1="573" y1="72" x2="573" y2="82" stroke="rgba(91,127,255,0.4)" stroke-width="0.8"/>
+  <text x="573" y="98"  text-anchor="middle" font-size="8.5" fill="#9aa0b8">pre-rise</text>
+  <text x="573" y="110" text-anchor="middle" font-size="8"   fill="rgba(91,127,255,0.55)">0.68</text>
+
+  <!-- p=0.77: SUNRISE / summit -->
+  <line x1="645" y1="72" x2="645" y2="82" stroke="rgba(255,178,122,0.7)" stroke-width="1.2"/>
+  <text x="645" y="98"  text-anchor="middle" font-size="8.5" fill="#ffb27a">SUNRISE</text>
+  <text x="645" y="110" text-anchor="middle" font-size="8"   fill="rgba(255,178,122,0.7)">0.77</text>
+
+  <!-- p=0.9: golden morning / rider -->
+  <line x1="748" y1="72" x2="748" y2="82" stroke="rgba(255,126,157,0.5)" stroke-width="0.8"/>
+  <text x="748" y="98"  text-anchor="middle" font-size="8.5" fill="#ff7e9d">golden</text>
+  <text x="748" y="110" text-anchor="middle" font-size="8"   fill="rgba(255,126,157,0.55)">0.90</text>
+
+  <!-- p=1.0: horizon -->
+  <line x1="828" y1="72" x2="828" y2="82" stroke="rgba(248,136,10,0.6)" stroke-width="0.8"/>
+  <text x="828" y="98"  text-anchor="middle" font-size="8.5" fill="#ffb27a">horizon</text>
+  <text x="828" y="110" text-anchor="middle" font-size="8"   fill="rgba(248,136,10,0.6)">1.00</text>
+
+  <!-- Separator -->
+  <line x1="32" y1="122" x2="828" y2="122"
+    stroke="rgba(91,127,255,0.12)" stroke-width="0.7"/>
+
+  <!-- Properties affected row -->
+  <text x="32" y="140" font-size="9" fill="rgba(154,160,184,0.65)" letter-spacing="1">CONTROLS:</text>
+
+  <rect x="100" y="128" width="70" height="18" rx="3" fill="rgba(91,127,255,0.08)" stroke="rgba(91,127,255,0.25)" stroke-width="0.8"/>
+  <text x="135" y="141" text-anchor="middle" font-size="8.5" fill="#9aa0b8">sky color</text>
+
+  <rect x="178" y="128" width="64" height="18" rx="3" fill="rgba(127,233,255,0.06)" stroke="rgba(127,233,255,0.22)" stroke-width="0.8"/>
+  <text x="210" y="141" text-anchor="middle" font-size="8.5" fill="#7fe9ff">sun disc</text>
+
+  <rect x="250" y="128" width="72" height="18" rx="3" fill="rgba(255,178,122,0.06)" stroke="rgba(255,178,122,0.22)" stroke-width="0.8"/>
+  <text x="286" y="141" text-anchor="middle" font-size="8.5" fill="#ffb27a">star opacity</text>
+
+  <rect x="330" y="128" width="80" height="18" rx="3" fill="rgba(255,126,157,0.06)" stroke="rgba(255,126,157,0.2)" stroke-width="0.8"/>
+  <text x="370" y="141" text-anchor="middle" font-size="8.5" fill="#ff7e9d">bloom intensity</text>
+
+  <rect x="418" y="128" width="78" height="18" rx="3" fill="rgba(91,127,255,0.06)" stroke="rgba(91,127,255,0.2)" stroke-width="0.8"/>
+  <text x="457" y="141" text-anchor="middle" font-size="8.5" fill="#9aa0b8">fog density</text>
+
+  <rect x="504" y="128" width="82" height="18" rx="3" fill="rgba(91,127,255,0.06)" stroke="rgba(91,127,255,0.2)" stroke-width="0.8"/>
+  <text x="545" y="141" text-anchor="middle" font-size="8.5" fill="#9aa0b8">hemi/dir light</text>
+
+  <rect x="594" y="128" width="80" height="18" rx="3" fill="rgba(255,178,122,0.06)" stroke="rgba(255,178,122,0.2)" stroke-width="0.8"/>
+  <text x="634" y="141" text-anchor="middle" font-size="8.5" fill="#ffb27a">god ray opacity</text>
+
+  <rect x="682" y="128" width="76" height="18" rx="3" fill="rgba(91,127,255,0.06)" stroke="rgba(91,127,255,0.18)" stroke-width="0.8"/>
+  <text x="720" y="141" text-anchor="middle" font-size="8.5" fill="#9aa0b8">tone-map exp.</text>
+
+  <!-- Bottom note -->
+  <text x="430" y="175" text-anchor="middle" font-size="9" letter-spacing="0.5"
+    fill="rgba(154,160,184,0.45)">
+    All properties smootherstep-interpolated each frame · shared mutable sky object mutated by Atmosphere.tsx · read by all systems
+  </text>
+</svg>

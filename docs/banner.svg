@@ -1,0 +1,204 @@
+<svg viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#020408"/>
+      <stop offset="55%" stop-color="#08102a"/>
+      <stop offset="100%" stop-color="#0d1a38"/>
+    </linearGradient>
+    <radialGradient id="hGlow" cx="50%" cy="72%" r="42%">
+      <stop offset="0%" stop-color="#1e3060" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#0d1a38" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rGlow" cx="50%" cy="80%" r="20%">
+      <stop offset="0%" stop-color="#5b7fff" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#5b7fff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#5b7fff" stop-opacity="0"/>
+      <stop offset="22%"  stop-color="#7fe9ff"/>
+      <stop offset="50%"  stop-color="#5b7fff"/>
+      <stop offset="78%"  stop-color="#7fe9ff"/>
+      <stop offset="100%" stop-color="#5b7fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="mw" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#253266" stop-opacity="0"/>
+      <stop offset="35%"  stop-color="#253266" stop-opacity="0.15"/>
+      <stop offset="50%"  stop-color="#3a4e8a" stop-opacity="0.22"/>
+      <stop offset="65%"  stop-color="#253266" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#253266" stop-opacity="0"/>
+    </linearGradient>
+    <style>
+      @keyframes tw1{from{opacity:.28}to{opacity:.92}}
+      @keyframes tw2{from{opacity:.45}to{opacity:1}}
+      @keyframes tw3{from{opacity:.18}to{opacity:.68}}
+      @keyframes gp{0%,100%{opacity:.52}50%{opacity:.88}}
+      .a{animation:tw1 2.1s ease-in-out infinite alternate}
+      .b{animation:tw2 3.5s ease-in-out infinite alternate}
+      .c{animation:tw3 4.8s ease-in-out infinite alternate}
+      .d{animation:tw1 1.9s .7s ease-in-out infinite alternate}
+      .e{animation:tw2 2.8s 1.4s ease-in-out infinite alternate}
+      .gp{animation:gp 5.2s ease-in-out infinite}
+    </style>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1000" height="420" fill="url(#sky)"/>
+
+  <!-- Milky Way band -->
+  <rect x="-280" y="-60" width="1560" height="360"
+        transform="rotate(-22 500 210)" fill="url(#mw)"/>
+
+  <!-- Stars A (fast twinkle) -->
+  <g class="a" fill="#c8d4f8">
+    <circle cx="48"  cy="32"  r="0.9"/>
+    <circle cx="178" cy="24"  r="1.1"/>
+    <circle cx="356" cy="18"  r="1.2"/>
+    <circle cx="512" cy="28"  r="0.8"/>
+    <circle cx="687" cy="15"  r="1.0"/>
+    <circle cx="834" cy="30"  r="1.1"/>
+    <circle cx="967" cy="22"  r="0.9"/>
+    <circle cx="124" cy="88"  r="1.0"/>
+    <circle cx="445" cy="72"  r="1.2"/>
+    <circle cx="778" cy="80"  r="0.9"/>
+    <circle cx="912" cy="95"  r="1.1"/>
+    <circle cx="67"  cy="148" r="0.9"/>
+    <circle cx="290" cy="135" r="1.1"/>
+    <circle cx="623" cy="142" r="1.0"/>
+  </g>
+  <!-- Stars B (medium twinkle) -->
+  <g class="b" fill="#c8d4f8">
+    <circle cx="92"  cy="55"  r="0.8"/>
+    <circle cx="234" cy="45"  r="1.0"/>
+    <circle cx="422" cy="38"  r="1.2"/>
+    <circle cx="578" cy="50"  r="0.9"/>
+    <circle cx="745" cy="35"  r="1.1"/>
+    <circle cx="889" cy="48"  r="0.8"/>
+    <circle cx="33"  cy="112" r="1.0"/>
+    <circle cx="312" cy="98"  r="0.9"/>
+    <circle cx="489" cy="108" r="1.2"/>
+    <circle cx="656" cy="95"  r="1.0"/>
+    <circle cx="823" cy="115" r="0.8"/>
+    <circle cx="156" cy="165" r="1.1"/>
+    <circle cx="534" cy="170" r="0.9"/>
+    <circle cx="756" cy="158" r="1.0"/>
+    <circle cx="901" cy="175" r="0.8"/>
+  </g>
+  <!-- Stars C (slow twinkle) -->
+  <g class="c" fill="#c8d4f8">
+    <circle cx="145" cy="38"  r="1.0"/>
+    <circle cx="267" cy="68"  r="0.9"/>
+    <circle cx="389" cy="58"  r="1.1"/>
+    <circle cx="556" cy="42"  r="0.8"/>
+    <circle cx="701" cy="62"  r="1.0"/>
+    <circle cx="845" cy="55"  r="1.2"/>
+    <circle cx="210" cy="125" r="0.9"/>
+    <circle cx="378" cy="118" r="1.1"/>
+    <circle cx="567" cy="130" r="0.8"/>
+    <circle cx="734" cy="122" r="1.0"/>
+    <circle cx="48"  cy="188" r="0.9"/>
+    <circle cx="398" cy="195" r="1.0"/>
+    <circle cx="834" cy="185" r="0.8"/>
+  </g>
+  <!-- Stars D (offset phase) -->
+  <g class="d" fill="#d8e2ff">
+    <circle cx="19"  cy="78"  r="1.3"/>
+    <circle cx="322" cy="55"  r="0.9"/>
+    <circle cx="499" cy="68"  r="1.1"/>
+    <circle cx="723" cy="45"  r="1.0"/>
+    <circle cx="980" cy="65"  r="1.2"/>
+    <circle cx="188" cy="145" r="0.9"/>
+    <circle cx="461" cy="155" r="1.0"/>
+    <circle cx="688" cy="148" r="1.1"/>
+    <circle cx="945" cy="158" r="0.8"/>
+  </g>
+  <!-- Stars E (bright anchor points) -->
+  <g class="e" fill="#ffffff">
+    <circle cx="300" cy="30"  r="1.4"/>
+    <circle cx="500" cy="15"  r="1.5"/>
+    <circle cx="650" cy="25"  r="1.3"/>
+    <circle cx="850" cy="140" r="1.2"/>
+    <circle cx="120" cy="185" r="1.1"/>
+  </g>
+
+  <!-- Horizon glow -->
+  <rect width="1000" height="420" fill="url(#hGlow)" class="gp"/>
+
+  <!-- Road glow -->
+  <rect width="1000" height="420" fill="url(#rGlow)"/>
+
+  <!-- Far mountains -->
+  <polygon
+    points="0,420 0,318 85,278 170,252 240,268 310,238 380,252
+            450,233 510,240 570,233 640,252 710,238 780,268
+            850,252 920,278 1000,318 1000,420"
+    fill="#0e2045"/>
+
+  <!-- Mid mountains -->
+  <polygon
+    points="0,420 0,360 90,332 180,305 255,318 330,292 405,308
+            480,288 540,295 600,288 670,308 745,292 820,318
+            895,305 965,332 1000,360 1000,420"
+    fill="#090e23"/>
+
+  <!-- Near foreground -->
+  <polygon
+    points="0,420 0,393 110,372 230,358 350,370 470,350
+            580,363 690,350 810,370 930,372 1000,393 1000,420"
+    fill="#060810"/>
+
+  <!-- Road (the spine of the ride) -->
+  <polygon points="440,420 494,296 506,296 560,420"
+           fill="rgba(91,127,255,0.04)"/>
+  <line x1="494" y1="296" x2="440" y2="420"
+        stroke="rgba(91,127,255,0.2)" stroke-width="1"/>
+  <line x1="506" y1="296" x2="560" y2="420"
+        stroke="rgba(91,127,255,0.2)" stroke-width="1"/>
+
+  <!-- Road cat's-eyes -->
+  <circle cx="500" cy="304" r="1.0" fill="rgba(255,210,120,0.5)"/>
+  <circle cx="500" cy="318" r="1.2" fill="rgba(255,210,120,0.42)"/>
+  <circle cx="500" cy="336" r="1.4" fill="rgba(255,210,120,0.34)"/>
+  <circle cx="500" cy="358" r="1.6" fill="rgba(255,210,120,0.26)"/>
+  <circle cx="500" cy="385" r="1.8" fill="rgba(255,210,120,0.18)"/>
+
+  <!-- Horizon line -->
+  <line x1="0" y1="296" x2="1000" y2="296"
+        stroke="#1e3060" stroke-width="0.6" opacity="0.45"/>
+
+  <!-- ── TYPOGRAPHY ── -->
+
+  <!-- Kicker -->
+  <text x="500" y="104"
+    text-anchor="middle"
+    font-family="ui-monospace,SFMono-Regular,'Courier New',monospace"
+    font-size="11" letter-spacing="5.5" fill="#5b7fff" opacity="0.88">
+    MULTI-AGENT AI · THREE.JS · NEXT.JS 16
+  </text>
+
+  <!-- Main title -->
+  <text x="500" y="178"
+    text-anchor="middle"
+    font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif"
+    font-size="84" font-weight="800" letter-spacing="-4" fill="#edeff5">
+    RIDGELINE
+  </text>
+
+  <!-- Tagline -->
+  <text x="500" y="218"
+    text-anchor="middle"
+    font-family="ui-monospace,SFMono-Regular,'Courier New',monospace"
+    font-size="13.5" letter-spacing="0.4" fill="#9aa0b8">
+    A scroll-driven 3D portfolio · ride the Karakoram at dawn
+  </text>
+
+  <!-- Domain watermark -->
+  <text x="500" y="394"
+    text-anchor="middle"
+    font-family="ui-monospace,SFMono-Regular,'Courier New',monospace"
+    font-size="10" letter-spacing="4" fill="rgba(91,127,255,0.48)">
+    hassannazir.dev
+  </text>
+
+  <!-- Bottom accent line -->
+  <rect y="417" width="1000" height="3" fill="url(#accent)"/>
+</svg>

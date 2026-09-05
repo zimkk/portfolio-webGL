@@ -1,0 +1,130 @@
+<svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Night to morning gradient across the strip -->
+    <linearGradient id="strip" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#010206"/>
+      <stop offset="8%"   stop-color="#010510"/>
+      <stop offset="18%"  stop-color="#060b20"/>
+      <stop offset="28%"  stop-color="#080f28"/>
+      <stop offset="38%"  stop-color="#0a1232"/>
+      <stop offset="50%"  stop-color="#0d1540"/>
+      <stop offset="60%"  stop-color="#102048"/>
+      <stop offset="70%"  stop-color="#1a1e3c"/>
+      <stop offset="78%"  stop-color="#2a1c2e"/>
+      <stop offset="86%"  stop-color="#4a2820"/>
+      <stop offset="93%"  stop-color="#c44e22"/>
+      <stop offset="100%" stop-color="#f8880a"/>
+    </linearGradient>
+    <!-- Ground strip -->
+    <linearGradient id="ground" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#020408"/>
+      <stop offset="100%" stop-color="#1a120a"/>
+    </linearGradient>
+    <linearGradient id="sun" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"
+        x1="0" y1="0" x2="0" y2="1" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffb27a" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ff7e9d" stop-opacity="0.3"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffb27a" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#ffb27a" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="a" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+      <polygon points="0 0, 5 2.5, 0 5" fill="rgba(91,127,255,0.5)"/>
+    </marker>
+  </defs>
+
+  <!-- Sky strip -->
+  <rect x="0" y="0" width="900" height="148" rx="0" fill="url(#strip)"/>
+
+  <!-- Sun at horizon (scene 6-7, around 86% = x≈775) -->
+  <circle cx="795" cy="105" r="28" fill="url(#sunGlow)"/>
+  <circle cx="795" cy="105" r="10" fill="#ffcc88" opacity="0.95"/>
+  <ellipse cx="795" cy="148" rx="180" ry="22" fill="rgba(255,178,122,0.12)"/>
+
+  <!-- Stars (night side only) -->
+  <g fill="rgba(200,212,248,0.7)">
+    <circle cx="18"  cy="18" r="1.0"/>
+    <circle cx="55"  cy="8"  r="0.8"/>
+    <circle cx="92"  cy="22" r="1.1"/>
+    <circle cx="138" cy="12" r="0.9"/>
+    <circle cx="175" cy="30" r="0.8"/>
+    <circle cx="210" cy="10" r="1.0"/>
+    <circle cx="264" cy="24" r="0.9"/>
+    <circle cx="305" cy="14" r="1.1"/>
+    <circle cx="348" cy="28" r="0.8"/>
+    <circle cx="38"  cy="50" r="0.8"/>
+    <circle cx="80"  cy="60" r="0.9"/>
+    <circle cx="118" cy="44" r="0.8"/>
+    <circle cx="160" cy="55" r="1.0"/>
+    <circle cx="240" cy="48" r="0.9"/>
+    <circle cx="288" cy="62" r="0.8"/>
+    <circle cx="340" cy="50" r="1.0"/>
+    <circle cx="385" cy="35" r="0.8"/>
+  </g>
+
+  <!-- Mountain silhouette -->
+  <polygon
+    points="0,148 0,120 60,100 120,88 180,105 240,80 290,95 340,72
+            400,88 450,68 500,80 560,88 620,75 680,90 740,78 800,95 860,100 900,110 900,148"
+    fill="rgba(5,8,20,0.8)"/>
+
+  <!-- Ground -->
+  <rect x="0" y="148" width="900" height="52" fill="url(#ground)"/>
+
+  <!-- Road line fading in -->
+  <line x1="450" y1="148" x2="450" y2="200"
+    stroke="rgba(91,127,255,0.15)" stroke-width="60"/>
+  <line x1="449" y1="148" x2="449" y2="200"
+    stroke="rgba(91,127,255,0.06)" stroke-width="100"/>
+
+  <!-- Scene dividers (vertical hairlines) -->
+  <g stroke="rgba(91,127,255,0.22)" stroke-width="0.8" stroke-dasharray="3 4">
+    <line x1="100" y1="0" x2="100" y2="148"/>
+    <line x1="200" y1="0" x2="200" y2="148"/>
+    <line x1="300" y1="0" x2="300" y2="148"/>
+    <line x1="400" y1="0" x2="400" y2="148"/>
+    <line x1="500" y1="0" x2="500" y2="148"/>
+    <line x1="600" y1="0" x2="600" y2="148"/>
+    <line x1="700" y1="0" x2="700" y2="148"/>
+    <line x1="800" y1="0" x2="800" y2="148"/>
+  </g>
+
+  <!-- Scene labels -->
+  <g font-family="ui-monospace,monospace" text-anchor="middle">
+    <!-- Scene 1: hero -->
+    <text x="50"  y="168" font-size="9.5" fill="#9aa0b8" letter-spacing="0.5">hero</text>
+    <text x="50"  y="181" font-size="8.5" fill="rgba(154,160,184,0.5)">0%</text>
+    <!-- Scene 2: departure -->
+    <text x="150" y="168" font-size="9.5" fill="#9aa0b8" letter-spacing="0.5">departure</text>
+    <text x="150" y="181" font-size="8.5" fill="rgba(154,160,184,0.5)">11%</text>
+    <!-- Scene 3: build -->
+    <text x="250" y="168" font-size="9.5" fill="#9aa0b8" letter-spacing="0.5">build</text>
+    <text x="250" y="181" font-size="8.5" fill="rgba(154,160,184,0.5)">22%</text>
+    <!-- Scene 4: swarm -->
+    <text x="350" y="168" font-size="9.5" fill="#7fe9ff" letter-spacing="0.5">swarm</text>
+    <text x="350" y="181" font-size="8.5" fill="rgba(127,233,255,0.5)">34%</text>
+    <!-- Scene 5: skills -->
+    <text x="450" y="168" font-size="9.5" fill="#9aa0b8" letter-spacing="0.5">skills</text>
+    <text x="450" y="181" font-size="8.5" fill="rgba(154,160,184,0.5)">46%</text>
+    <!-- Scene 6: velocity -->
+    <text x="550" y="168" font-size="9.5" fill="#9aa0b8" letter-spacing="0.5">velocity</text>
+    <text x="550" y="181" font-size="8.5" fill="rgba(154,160,184,0.5)">60%</text>
+    <!-- Scene 7: summit -->
+    <text x="650" y="168" font-size="9.5" fill="#ffb27a" letter-spacing="0.5">summit</text>
+    <text x="650" y="181" font-size="8.5" fill="rgba(255,178,122,0.5)">74%</text>
+    <!-- Scene 8: rider -->
+    <text x="750" y="168" font-size="9.5" fill="#ff7e9d" letter-spacing="0.5">rider</text>
+    <text x="750" y="181" font-size="8.5" fill="rgba(255,126,157,0.5)">85%</text>
+    <!-- Scene 9: horizon -->
+    <text x="850" y="168" font-size="9.5" fill="#5b7fff" letter-spacing="0.5">horizon</text>
+    <text x="850" y="181" font-size="8.5" fill="rgba(91,127,255,0.5)">96%</text>
+  </g>
+
+  <!-- Progress arrow -->
+  <line x1="12" y1="193" x2="888" y2="193"
+    stroke="rgba(91,127,255,0.35)" stroke-width="1" marker-end="url(#a)"/>
+  <text x="450" y="200" text-anchor="middle"
+    font-family="ui-monospace,monospace" font-size="8.5"
+    fill="rgba(91,127,255,0.5)" letter-spacing="2">scroll progress  0 → 1</text>
+</svg>
