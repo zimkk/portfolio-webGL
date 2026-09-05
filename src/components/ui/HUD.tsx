@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useRide, SCENES } from "@/lib/ride";
 
 const LABELS: Record<string, string> = {
@@ -20,6 +21,25 @@ export default function HUD() {
   const { progress, scene } = useRide();
   const alt = Math.round(progress * MAX_ALT);
   const idx = SCENES.findIndex((s) => s.id === scene);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      const current = SCENES.findIndex((s) => s.id === scene);
+      if (e.key === "ArrowDown" || e.key === "PageDown") {
+        e.preventDefault();
+        const next = SCENES[Math.min(current + 1, SCENES.length - 1)];
+        if (next) goto(next.start);
+      } else if (e.key === "ArrowUp" || e.key === "PageUp") {
+        e.preventDefault();
+        const prev = SCENES[Math.max(current - 1, 0)];
+        if (prev) goto(prev.start);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scene]);
 
   const goto = (start: number) => {
     const doc = document.documentElement;

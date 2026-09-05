@@ -20,7 +20,7 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
-const SITE = "https://hassannazir.dev";
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://hassannazir.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
