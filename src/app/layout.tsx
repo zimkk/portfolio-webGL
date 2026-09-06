@@ -54,6 +54,13 @@ export const metadata: Metadata = {
       "Builds autonomous multi-agent AI systems and full-stack products. Founder & CTO of Gridcore.",
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export const viewport: Viewport = {
