@@ -1,5 +1,6 @@
 // ============================================================
 // RIDGELINE — single source of truth for all DOM overlay copy.
+// The portfolio is a riding story and a career story told as one.
 // ============================================================
 
 export const IDENTITY = {
@@ -15,8 +16,8 @@ export const IDENTITY = {
   linkedinUrl: "https://linkedin.com/in/hassannazirrr",
   gridcore: "gridcore.co",
   gridcoreUrl: "https://gridcore.co",
-  tagline: "Forward Deployed Engineer. Applied AI. Mountain roads.",
-  chips: ["Forward Deployment", "Applied AI", "Full-Stack", "Islamabad, PK"],
+  tagline: "Engineer of autonomous systems. Rider of mountain roads.",
+  chips: ["Multi-Agent AI", "Full-Stack", "Automation", "Islamabad, PK"],
 } as const;
 
 export type Chapter = {
@@ -35,27 +36,27 @@ export const CHAPTERS: Chapter[] = [
     index: "01",
     kicker: "2020 — 2023 · The Foundations",
     title: "Where the road starts",
-    body: "QA Executive at Touchstone Communications — functional, regression, UAT and compliance testing across 14+ teams and 500+ employees. The discipline starts here: precision, pattern recognition, finding the fault before the user does. Freelance work running in parallel since 2019.",
+    body: "First job wasn't code — it was audio. Transcription work at Touchstone Communications, learning to listen for where the signal breaks. A year later, QA Specialist, testing internal software for 14+ teams and 500+ employees. The discipline that stuck: precision, pattern recognition, finding the fault before the user does. Computer Science at Air University running in parallel. One hand in a textbook, one already reaching for a keyboard.",
     align: "left",
   },
   {
     id: "build",
     index: "02",
     kicker: "Aug 2021 — Present · GridCore, Islamabad",
-    title: "The build",
-    body: "Joined GridCore as an Associate SWE. Promoted twice over five years into Software Architect & Full-Stack Engineer — owning technical direction across multiple engineering teams. Architected IDitracker for IDitech Mexico: inventory and stock-management for 220+ employees and 200+ clients. React, Next.js, TypeScript, NestJS, Node.js, PostgreSQL, MongoDB, Redis, Docker, CI/CD. 99.9% production reliability.",
-    callout: { label: "gridcore.co", text: "Hybrid engineering consultancy, Islamabad. Client forward deployment, architecture, and delivery." },
+    title: "The first long climb",
+    body: "Joined GridCore in August 2021 as Associate Software Engineer. Promoted to Backend Engineer, then to Software Architect & Full-Stack Engineer — five years, two promotions. Built IDitracker for IDitech Mexico: inventory and stock management for 220+ employees and 200+ clients, with tenant isolation, RBAC, real-time updates, and full audit logging. In December 2023, took ownership and became CTO. The stack runs deep: React, Next.js, TypeScript, NestJS, Node.js, Python, PostgreSQL, MongoDB, Redis, Docker, CI/CD.",
+    callout: { label: "gridcore.co", text: "Hybrid engineering consultancy, Islamabad. Client forward deployment, architecture, and production ownership across web, mobile, and AI systems." },
     align: "left",
   },
   {
     id: "swarm",
     index: "03",
-    kicker: "Aug 2025 — Present · AI Architecture Contracts",
+    kicker: "2023 — Present · Multi-Agent Systems",
     title: "The swarm awakens",
-    body: "NDT Legacy Group — engineered enterprise AI automation platform processing 10K+ daily transactions, 40% cost reduction. Schmoozzer, London — 7-8 concurrent client projects, LLM pipelines, n8n orchestration, NY County auditing system. UNO OS, Las Vegas — AI Architect, leading 7 engineers across 4 client engagements, architecting an AI-native Business Operating System.",
+    body: "AI stopped being a side interest and became core to the work. Real RAG pipelines, vector databases — Pinecone, Chroma, sqlite-vec — multi-agent systems that actually hand off tasks to each other. OpenClaw: an eight-agent hierarchical orchestration platform. Tommy at the top as CEO orchestrator. John, Dave, Tao, Sol, Jim, Tana, Zia underneath. Runs on Julie, a personal VPS over Tailscale, with SQLite and sqlite-vec for memory. Wired to Telegram, X/Twitter, a Canvas Host, agent-to-agent communication. The swarm you're watching is not a metaphor.",
     callout: {
       label: "OpenClaw",
-      text: "Proprietary 8-agent orchestration platform. Tommy as CEO orchestrator + 7 sub-agents, SQLite + sqlite-vec memory, Telegram control, running on a VPS over Tailscale. The swarm you are watching.",
+      text: "Eight-agent hierarchical orchestration platform. Tommy as CEO orchestrator + 7 sub-agents, SQLite + sqlite-vec memory, Telegram control, running on VPS (Julie) over Tailscale. This is the system the swarm you are watching represents.",
     },
     align: "left",
   },
@@ -66,8 +67,8 @@ export const RIDER = {
   kicker: "The human",
   title: "The rider",
   body: [
-    "Based in Islamabad, Pakistan. BS Computer Science at Air University, 2024. Certified Ethical Hacker (CEH-P, NUST-NCAI / NAVTTC). Five years at GridCore, promoted twice. Now also AI Architect at UNO OS, Las Vegas — remote.",
-    "Builds autonomous agent systems and ships production AI. Plans long touring routes through northern Pakistan and Azad Kashmir. Reads Urdu literature and has built Urdu audiobook pipelines from his own library. The mountains aren't a metaphor he reached for. They're where he actually goes.",
+    "Based in Islamabad, Pakistan. Computer Science at Air University, 2024. Solo touring has stretched across the whole country: the northern areas, KPK, Sindh, Punjab. Balochistan is the next horizon. The Karakoram isn't a one-time trip — it's a road he keeps returning to.",
+    "The same pattern that runs through the riding runs through the work: solo, self-directed, comfortable being the only one responsible for getting through the terrain. Reads Urdu literature; built an audiobook pipeline for his own library using Tesseract OCR and Facebook MMS-TTS. The mountains are not a metaphor he reached for. They are where he actually goes.",
   ],
 } as const;
 
@@ -127,6 +128,8 @@ export const CERTIFICATIONS = [
   { name: "ISO/IEC 27001 Information Security Associate", issuer: "SkillFront" },
 ] as const;
 
+// The agent hierarchy — Scene 4 swarm. Tommy leads.
+// These are the real names from OpenClaw, Hassan's 8-agent orchestration platform.
 export type Drone = {
   name: string;
   role: string;
@@ -144,19 +147,21 @@ export const DRONES: Drone[] = [
   { name: "Zia", role: "memory agent" },
 ];
 
+// Scene 6 — velocity tarmac. The long straight stretch.
+// Camps coming one after another, flashing by like highway markers.
 export const VELOCITY_MARKERS = [
   {
-    org: "Brilliant Gaming LLC",
-    role: "Lead QA Engineer · Feb 2025 – Sep 2025",
-    detail: "8-person QA team · EPWIN casino platform · payment-critical flows · E2E + API automation",
+    org: "NDT Legacy Group",
+    role: "Senior AI Engineer · Aug 2025 – Apr 2026",
+    detail: "Enterprise AI automation · 10K+ daily transactions · 40% cost reduction",
   },
   {
-    org: "Schmoozzer",
+    org: "Schmoozzer, London",
     role: "Senior AI Engineer · Oct 2025 – Jan 2026",
-    detail: "7-8 client projects · LLM pipelines · n8n orchestration · NY County auditing system",
+    detail: "7–8 client projects simultaneously · LLM pipelines · NY County auditing system",
   },
   {
-    org: "UNO OS",
+    org: "UNO OS, Las Vegas",
     role: "AI Architect · May 2026 – Present",
     detail: "7 engineers · 4 client engagements · AI-native Business Operating System",
   },
@@ -178,7 +183,7 @@ export const PROJECTS: Project[] = [
     id: "wonderkit",
     name: "WonderKit",
     blurb:
-      "Open-source agent-native AI SaaS starter kit. Pre-structured application, integration, and platform foundations — ship production AI agent apps in days, not months.",
+      "Open-source, agent-native AI SaaS starter kit. Pre-structured application, integration, and platform foundations — ship an AI product in days, not months.",
     tags: ["TypeScript", "AI Agents", "MCP", "Next.js", "Open Source"],
     href: "https://github.com/zimkk/wonderkit",
     featured: true,
@@ -187,7 +192,7 @@ export const PROJECTS: Project[] = [
     id: "n8nhub",
     name: "n8nHub",
     blurb:
-      "Platform hosting 2.4K+ free n8n automation workflows with workflow discovery, reusable templates, and an embedded community forum layer.",
+      "Workflow library and community forum hosting 2,400+ free n8n workflows. Discovery, reusable templates, a forum layer. Built because the itch to ship it wouldn't go away.",
     tags: ["n8n", "TypeScript", "Automation", "Next.js"],
     href: "https://n8nhub.hassannazir.dev",
   },
@@ -195,15 +200,15 @@ export const PROJECTS: Project[] = [
     id: "vigil",
     name: "Vigil",
     blurb:
-      "Security research and VAPT tool for vulnerability scanning, code analysis, and application-level security review across web and software systems.",
-    tags: ["Python", "Security", "VAPT", "Open Source"],
+      "Open-source cybersecurity tool: Tauri/Rust backend, TypeScript/React frontend. Red team and blue team in one — vulnerability scanning, code analysis, AI orchestrator on top.",
+    tags: ["Python", "Rust", "Security", "VAPT", "Open Source"],
     href: "https://github.com/zimkk/vigil",
   },
   {
     id: "mynecraft",
     name: "Mynecraft",
     blurb:
-      "Minecraft-style 3D sandbox running entirely in the browser — Three.js + WebGL voxel engine with terrain generation, crafting, mobs, and day/night cycle.",
+      "Minecraft-style 3D sandbox that runs entirely in the browser. Three.js + WebGL voxel engine with terrain generation, crafting, mobs, and a day/night cycle.",
     tags: ["TypeScript", "Three.js", "WebGL", "Open Source"],
     href: "https://github.com/zimkk/mynecraft",
   },
@@ -211,21 +216,21 @@ export const PROJECTS: Project[] = [
     id: "lead-scraper",
     name: "Lead Scraper",
     blurb:
-      "Interactive B2B lead discovery tool — scrapes, extracts, and structures qualified leads from Google Maps with filtering and export.",
-    tags: ["Python", "Scraping", "Lead Gen", "Open Source"],
+      "B2B lead discovery tool — scrapes, extracts, and structures qualified leads from Google Maps with filtering and export. Python and Playwright.",
+    tags: ["Python", "Playwright", "Scraping", "Open Source"],
     href: "https://github.com/zimkk/Lead-Scraper-Google-Maps",
   },
   {
     id: "portfolio-webgl",
     name: "Ridgeline",
     blurb:
-      "This portfolio — a scroll-driven 3D ride up a computed Karakoram mountain pass from deep night to golden sunrise. Next.js, React Three Fiber, multi-agent AI swarm.",
+      "This portfolio — a scroll-driven ride up a computed Karakoram pass from deep night to golden sunrise. The code is open. Fork it, make it yours.",
     tags: ["Next.js", "Three.js", "WebGL", "Open Source"],
     href: "https://github.com/zimkk/portfolio-webGL",
   },
 ];
 
-export const PROJECTS_TAGLINE = "31 public repositories. A few that mattered most.";
+export const PROJECTS_TAGLINE = "70+ projects built. A few that live here.";
 
 export const CONTACT = {
   headline: "Let's build something.",
