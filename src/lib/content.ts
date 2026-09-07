@@ -1,13 +1,12 @@
 // ============================================================
-// RIDGELINE — verbatim content (from the build prompt appendix)
-// Single source of truth for the DOM overlay copy.
+// RIDGELINE — single source of truth for all DOM overlay copy.
 // ============================================================
 
 export const IDENTITY = {
   name: "Hassan Nazir",
-  role: "Multi-Agent AI Systems Engineer",
+  role: "Forward Deployed Engineer",
   location: "Islamabad, Pakistan",
-  education: "BS Computer Science, 2024",
+  education: "BS Computer Science, Air University — 2024",
   email: "hassannazir955@gmail.com",
   site: "hassannazir.dev",
   github: "github.com/zimkk",
@@ -16,48 +15,47 @@ export const IDENTITY = {
   linkedinUrl: "https://linkedin.com/in/hassannazirrr",
   gridcore: "gridcore.co",
   gridcoreUrl: "https://gridcore.co",
-  tagline: "Engineer of autonomous systems. Rider of mountain roads.",
-  chips: ["Multi-Agent AI", "Full-Stack", "Automation", "Islamabad, PK"],
+  tagline: "Forward Deployed Engineer. Applied AI. Mountain roads.",
+  chips: ["Forward Deployment", "Applied AI", "Full-Stack", "Islamabad, PK"],
 } as const;
 
 export type Chapter = {
   id: string;
-  index: string; // editorial chapter number
-  kicker: string; // mono meta line / date range
+  index: string;
+  kicker: string;
   title: string;
   body: string;
   callout?: { label: string; text: string };
   align: "left" | "right" | "center";
 };
 
-// Ordered chapters mapped onto scroll scenes (Scenes 2–4, 7).
 export const CHAPTERS: Chapter[] = [
   {
     id: "departure",
     index: "01",
     kicker: "2020 — 2023 · The Foundations",
     title: "Where the road starts",
-    body: "Audio Transcriber, then QA Specialist. Where the discipline started: precision, listening, finding the fault before the user does.",
+    body: "QA Executive at Touchstone Communications — functional, regression, UAT and compliance testing across 14+ teams and 500+ employees. The discipline starts here: precision, pattern recognition, finding the fault before the user does. Freelance work running in parallel since 2019.",
     align: "left",
   },
   {
     id: "build",
     index: "02",
-    kicker: "Dec 2023 — Present · Founder & CTO, Gridcore",
+    kicker: "Aug 2021 — Present · GridCore, Islamabad",
     title: "The build",
-    body: "Started his own software + AI engineering consultancy. Fully remote. Set company-wide backend standards and shipped products end to end — across TypeScript, React, NestJS, PostgreSQL, Docker, Nginx and GitHub Actions — architecting cloud infrastructure and deployment pipelines at 99.9% reliability.",
-    callout: { label: "roadside marker", text: "gridcore.co" },
+    body: "Joined GridCore as an Associate SWE. Promoted twice over five years into Software Architect & Full-Stack Engineer — owning technical direction across multiple engineering teams. Architected IDitracker for IDitech Mexico: inventory and stock-management for 220+ employees and 200+ clients. React, Next.js, TypeScript, NestJS, Node.js, PostgreSQL, MongoDB, Redis, Docker, CI/CD. 99.9% production reliability.",
+    callout: { label: "gridcore.co", text: "Hybrid engineering consultancy, Islamabad. Client forward deployment, architecture, and delivery." },
     align: "left",
   },
   {
     id: "swarm",
     index: "03",
-    kicker: "Aug 2025 — Apr 2026 · Senior AI / AI Automation Engineer",
+    kicker: "Aug 2025 — Present · AI Architecture Contracts",
     title: "The swarm awakens",
-    body: "Architected an enterprise AI automation platform — a production multi-agent hierarchy processing 10K+ daily transactions at 99.9% uptime, cutting operational cost 40% and lifting workflow efficiency 60%. LangChain, vector DBs, event-driven workflows, n8n orchestration.",
+    body: "NDT Legacy Group — engineered enterprise AI automation platform processing 10K+ daily transactions, 40% cost reduction. Schmoozzer, London — 7-8 concurrent client projects, LLM pipelines, n8n orchestration, NY County auditing system. UNO OS, Las Vegas — AI Architect, leading 7 engineers across 4 client engagements, architecting an AI-native Business Operating System.",
     callout: {
       label: "OpenClaw",
-      text: "His proprietary 8-agent platform. Tommy as CEO orchestrator + 7 sub-agents, SQLite + sqlite-vec memory, Telegram control, running on a VPS (“Julie”) over Tailscale. This is the system the swarm you're looking at represents.",
+      text: "Proprietary 8-agent orchestration platform. Tommy as CEO orchestrator + 7 sub-agents, SQLite + sqlite-vec memory, Telegram control, running on a VPS over Tailscale. The swarm you are watching.",
     },
     align: "left",
   },
@@ -68,59 +66,57 @@ export const RIDER = {
   kicker: "The human",
   title: "The rider",
   body: [
-    "Based in Islamabad, Pakistan. Studied Computer Science at Air University, Islamabad. Builds autonomous agent systems by day; plans long touring routes through northern Pakistan and Azad Kashmir.",
-    "Reads Urdu literature — has even built Urdu audiobook pipelines from his own library. The mountains aren't a metaphor he reached for. They're where he actually goes.",
+    "Based in Islamabad, Pakistan. BS Computer Science at Air University, 2024. Certified Ethical Hacker (CEH-P, NUST-NCAI / NAVTTC). Five years at GridCore, promoted twice. Now also AI Architect at UNO OS, Las Vegas — remote.",
+    "Builds autonomous agent systems and ships production AI. Plans long touring routes through northern Pakistan and Azad Kashmir. Reads Urdu literature and has built Urdu audiobook pipelines from his own library. The mountains aren't a metaphor he reached for. They're where he actually goes.",
   ],
 } as const;
 
 export const EDUCATION = {
   degree: "Computer Science",
   school: "Air University, Islamabad",
-  period: "2020 — 2025",
+  period: "2020 — 2024",
 } as const;
 
-// Verifiable, client-agnostic impact across roles.
 export const IMPACT = [
   { value: "10K+", label: "users served" },
   { value: "99.9%", label: "uptime" },
   { value: "40%", label: "cost reduced" },
-  { value: "60%", label: "more efficient" },
+  { value: "10K+", label: "daily transactions" },
   { value: "20+", label: "LLM fine-tunes" },
   { value: "100+", label: "automations shipped" },
 ] as const;
 
-// Grouped technical skills with self-rated proficiency (0–100).
 export type SkillGroup = { group: string; items: { name: string; level: number }[] };
 
 export const SKILLS: SkillGroup[] = [
   {
-    group: "Backend & APIs",
+    group: "Full-Stack & APIs",
     items: [
-      { name: "Python", level: 95 },
-      { name: "REST API design & versioning", level: 92 },
-      { name: "Microservices architecture", level: 90 },
-      { name: "Event-driven systems", level: 88 },
-      { name: "FastAPI / Node.js", level: 90 },
+      { name: "React · Next.js · TypeScript", level: 95 },
+      { name: "Node.js · NestJS · FastAPI", level: 92 },
+      { name: "PostgreSQL · MongoDB · Redis", level: 90 },
+      { name: "REST APIs · Microservices", level: 92 },
+      { name: "Docker · Kubernetes · Nginx", level: 86 },
     ],
   },
   {
-    group: "Data & AI / ML",
+    group: "Applied AI & Automation",
     items: [
-      { name: "LangChain / RAG", level: 90 },
-      { name: "OpenAI / Claude APIs", level: 88 },
-      { name: "Hugging Face fine-tuning", level: 85 },
-      { name: "PyTorch / TensorFlow", level: 82 },
-      { name: "PostgreSQL · Redis · vector DBs", level: 88 },
+      { name: "LLM Apps · RAG · Agent Orchestration", level: 93 },
+      { name: "LangChain · LangGraph · MCP", level: 90 },
+      { name: "n8n · Make · Zapier · Workflow Automation", level: 92 },
+      { name: "Vector DBs · pgvector · Pinecone", level: 88 },
+      { name: "Fine-tuning · Hugging Face · Unsloth", level: 85 },
     ],
   },
   {
-    group: "Cloud, Security & Quality",
+    group: "Cloud, Security & QA",
     items: [
-      { name: "Docker / Kubernetes", level: 86 },
-      { name: "AWS / GCP", level: 85 },
-      { name: "CI/CD — GitHub Actions / Jenkins", level: 84 },
-      { name: "OAuth2 / JWT · audit logging", level: 88 },
-      { name: "Selenium / Playwright", level: 85 },
+      { name: "AWS · GCP · GitHub Actions · CI/CD", level: 86 },
+      { name: "VAPT · Secure Code Review (CEH-P)", level: 84 },
+      { name: "Playwright · Selenium · Cypress", level: 87 },
+      { name: "Python · Bash · PowerShell", level: 90 },
+      { name: "OAuth2 · JWT · Audit Logging · RBAC", level: 88 },
     ],
   },
 ];
@@ -131,7 +127,6 @@ export const CERTIFICATIONS = [
   { name: "ISO/IEC 27001 Information Security Associate", issuer: "SkillFront" },
 ] as const;
 
-// The agent hierarchy — Scene 4 swarm. Tommy leads.
 export type Drone = {
   name: string;
   role: string;
@@ -140,37 +135,35 @@ export type Drone = {
 
 export const DRONES: Drone[] = [
   { name: "Tommy", role: "CEO orchestrator", lead: true },
-  { name: "John", role: "sub-agent" },
-  { name: "Dave", role: "sub-agent" },
-  { name: "Tao", role: "sub-agent" },
-  { name: "Sol", role: "sub-agent" },
-  { name: "Jim", role: "sub-agent" },
-  { name: "Tana", role: "sub-agent" },
-  { name: "Zia", role: "sub-agent" },
+  { name: "John", role: "retrieval agent" },
+  { name: "Dave", role: "code agent" },
+  { name: "Tao", role: "data agent" },
+  { name: "Sol", role: "search agent" },
+  { name: "Jim", role: "file agent" },
+  { name: "Tana", role: "comms agent" },
+  { name: "Zia", role: "memory agent" },
 ];
 
-// Scene 5 — velocity flash markers (momentum over detail).
 export const VELOCITY_MARKERS = [
   {
-    org: "QA Automation",
-    role: "Lead, contract",
-    detail: "8-person team · 200+ edge cases caught · 50% faster testing",
+    org: "Brilliant Gaming LLC",
+    role: "Lead QA Engineer · Feb 2025 – Sep 2025",
+    detail: "8-person QA team · EPWIN casino platform · payment-critical flows · E2E + API automation",
   },
   {
-    org: "Senior AI Engineer",
-    role: "contract",
-    detail: "agentic workflows · LLM apps · n8n orchestration",
+    org: "Schmoozzer",
+    role: "Senior AI Engineer · Oct 2025 – Jan 2026",
+    detail: "7-8 client projects · LLM pipelines · n8n orchestration · NY County auditing system",
   },
   {
-    org: "AI Architect",
-    role: "Apr 2026 — present",
-    detail: "AI system architecture · LLM & agent platforms",
+    org: "UNO OS",
+    role: "AI Architect · May 2026 – Present",
+    detail: "7 engineers · 4 client engagements · AI-native Business Operating System",
   },
 ] as const;
 
 export const VELOCITY_CLOSER = "Different machines. Same throttle.";
 
-// Scene 6 — summit project constellation.
 export type Project = {
   id: string;
   name: string;
@@ -182,57 +175,57 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    id: "thehomeclub",
-    name: "The Home Club",
+    id: "wonderkit",
+    name: "WonderKit",
     blurb:
-      "Sports club platform for memberships, programs, and community engagement with a polished public-facing web experience.",
-    tags: ["React", "Web App", "Sports", "Full Stack"],
-    href: "https://github.com/zimkk",
+      "Open-source agent-native AI SaaS starter kit. Pre-structured application, integration, and platform foundations — ship production AI agent apps in days, not months.",
+    tags: ["TypeScript", "AI Agents", "MCP", "Next.js", "Open Source"],
+    href: "https://github.com/zimkk/wonderkit",
     featured: true,
   },
   {
     id: "n8nhub",
-    name: "N8NHUB",
+    name: "n8nHub",
     blurb:
-      "Curated library of 2000+ n8n workflow templates for automation builders, with searchable categories and ready-to-use integrations.",
-    tags: ["n8n", "Automation", "Workflows", "No-Code"],
+      "Platform hosting 2.4K+ free n8n automation workflows with workflow discovery, reusable templates, and an embedded community forum layer.",
+    tags: ["n8n", "TypeScript", "Automation", "Next.js"],
     href: "https://n8nhub.hassannazir.dev",
   },
   {
-    id: "speedyinfluencer",
-    name: "SpeedyInfluencer",
+    id: "vigil",
+    name: "Vigil",
     blurb:
-      "Influencer marketing platform connecting brands and creators with campaign tools, analytics, and streamlined collaboration workflows.",
-    tags: ["React", "Marketing", "SaaS", "Full Stack"],
-    href: "https://speedyinfluencer.com",
+      "Security research and VAPT tool for vulnerability scanning, code analysis, and application-level security review across web and software systems.",
+    tags: ["Python", "Security", "VAPT", "Open Source"],
+    href: "https://github.com/zimkk/vigil",
   },
   {
-    id: "smartfurs",
-    name: "SmartFurs",
+    id: "mynecraft",
+    name: "Mynecraft",
     blurb:
-      "E-commerce platform for purebred puppies with breed listings, buyer discovery, and a modern storefront experience.",
-    tags: ["React", "E-commerce", "Vercel", "Web App"],
-    href: "https://github.com/zimkk",
+      "Minecraft-style 3D sandbox running entirely in the browser — Three.js + WebGL voxel engine with terrain generation, crafting, mobs, and day/night cycle.",
+    tags: ["TypeScript", "Three.js", "WebGL", "Open Source"],
+    href: "https://github.com/zimkk/mynecraft",
   },
   {
-    id: "fooocus",
-    name: "Fooocus",
+    id: "lead-scraper",
+    name: "Lead Scraper",
     blurb:
-      "SDXL-based image generation tool focused on prompting and generating high-quality visuals with a streamlined, minimal setup.",
-    tags: ["Python", "SDXL", "GenAI", "Gradio"],
-    href: "https://github.com/zimkk/Fooocus",
+      "Interactive B2B lead discovery tool — scrapes, extracts, and structures qualified leads from Google Maps with filtering and export.",
+    tags: ["Python", "Scraping", "Lead Gen", "Open Source"],
+    href: "https://github.com/zimkk/Lead-Scraper-Google-Maps",
   },
   {
-    id: "erdman-ny-county",
-    name: "erdman-ny-county",
+    id: "portfolio-webgl",
+    name: "Ridgeline",
     blurb:
-      "Backend-focused project with Python services and structured workflows for production-style application logic.",
-    tags: ["Python", "Backend", "APIs", "Automation"],
-    href: "https://github.com/zimkk",
+      "This portfolio — a scroll-driven 3D ride up a computed Karakoram mountain pass from deep night to golden sunrise. Next.js, React Three Fiber, multi-agent AI swarm.",
+    tags: ["Next.js", "Three.js", "WebGL", "Open Source"],
+    href: "https://github.com/zimkk/portfolio-webGL",
   },
 ];
 
-export const PROJECTS_TAGLINE = "70+ repositories. A few that mattered most.";
+export const PROJECTS_TAGLINE = "31 public repositories. A few that mattered most.";
 
 export const CONTACT = {
   headline: "Let's build something.",
@@ -241,6 +234,6 @@ export const CONTACT = {
     { label: "github.com/zimkk", href: "https://github.com/zimkk" },
     { label: "linkedin.com/in/hassannazirrr", href: "https://linkedin.com/in/hassannazirrr" },
     { label: "gridcore.co", href: "https://gridcore.co" },
-    { label: "hassannazir.dev", href: "https://hassannazir.dev" },
+    { label: "n8nhub.hassannazir.dev", href: "https://n8nhub.hassannazir.dev" },
   ],
 } as const;

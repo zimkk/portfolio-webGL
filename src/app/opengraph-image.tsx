@@ -62,7 +62,7 @@ export default function Image() {
             fontFamily: "monospace",
           }}
         >
-          Multi-Agent AI · Karakoram
+          Forward Deployed Engineer · Karakoram
         </div>
 
         {/* main name */}
@@ -93,7 +93,7 @@ export default function Image() {
               textTransform: "uppercase",
             }}
           >
-            Multi-Agent AI Systems Engineer
+            Forward Deployed Engineer · Applied AI
           </div>
           <div style={{ display: "flex", width: 1, height: 22, background: "rgba(138,144,166,0.3)" }} />
           <div

@@ -24,17 +24,21 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://hassannazir.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
-  title: "Hassan Nazir — Multi-Agent AI Systems Engineer",
+  title: "Hassan Nazir — Forward Deployed Engineer",
   description:
-    "Hassan Nazir builds autonomous multi-agent AI systems and full-stack products. Founder & CTO of Gridcore. Based in Islamabad, Pakistan.",
+    "Hassan Nazir is a Forward Deployed Engineer and Applied AI specialist based in Islamabad, Pakistan. Software Architect at GridCore, AI Architect at UNO OS. Ships LLM systems, RAG pipelines, agent orchestration, and full-stack products.",
   keywords: [
     "Hassan Nazir",
-    "Multi-Agent AI",
-    "AI Systems Engineer",
-    "Full-Stack Developer",
-    "Automation Engineer",
-    "Gridcore",
-    "OpenClaw",
+    "Forward Deployed Engineer",
+    "Applied AI",
+    "AI Architect",
+    "Software Architect",
+    "Full-Stack Engineer",
+    "Agent Orchestration",
+    "RAG",
+    "LangChain",
+    "n8n Automation",
+    "GridCore",
     "Islamabad",
   ],
   authors: [{ name: "Hassan Nazir", url: SITE }],
@@ -42,16 +46,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: SITE,
-    title: "Hassan Nazir — Multi-Agent AI Systems Engineer",
+    title: "Hassan Nazir — Forward Deployed Engineer",
     description:
-      "A scroll-driven ride up a computed Karakoram pass — the career of an engineer who builds multi-agent AI and rides mountain roads.",
+      "A scroll-driven ride up a computed Karakoram pass — the career of a Forward Deployed Engineer who ships AI systems and rides mountain roads.",
     siteName: "Hassan Nazir",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hassan Nazir — Multi-Agent AI Systems Engineer",
+    title: "Hassan Nazir — Forward Deployed Engineer",
     description:
-      "Builds autonomous multi-agent AI systems and full-stack products. Founder & CTO of Gridcore.",
+      "Forward Deployed Engineer & Applied AI specialist. Software Architect at GridCore, AI Architect at UNO OS. Islamabad, Pakistan.",
   },
   robots: { index: true, follow: true },
   icons: {
@@ -73,7 +77,7 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Hassan Nazir",
-  jobTitle: "Multi-Agent AI Systems Engineer",
+  jobTitle: "Forward Deployed Engineer",
   url: SITE,
   address: {
     "@type": "PostalAddress",
