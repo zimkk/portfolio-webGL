@@ -19,17 +19,17 @@ export default function Preloader({ ready, onDone }: Props) {
     const loop = () => {
       // climb fast to 92, then wait for the real ready signal to finish
       const target = ready ? 100 : 92;
-      valRef.current += (target - valRef.current) * 0.06;
+      valRef.current += (target - valRef.current) * 0.09;
       const v = Math.min(100, valRef.current);
       setCount(Math.round(v));
       if (v >= 99.4 && ready && !doneRef.current) {
         doneRef.current = true;
         setCount(100);
-        // Wait 1.2s before automatically fading out
+        // Hold briefly then fade out
         setTimeout(() => {
           setGone(true);
-          setTimeout(onDone, 750);
-        }, 1200);
+          setTimeout(onDone, 600);
+        }, 500);
         return;
       }
       raf = requestAnimationFrame(loop);

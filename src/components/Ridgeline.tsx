@@ -36,7 +36,7 @@ export default function Ridgeline() {
 
   // safety net: if WebGL never reports ready, finish the preloader anyway
   useEffect(() => {
-    const t = setTimeout(() => setReady(true), 4500);
+    const t = setTimeout(() => setReady(true), 2200);
     return () => clearTimeout(t);
   }, []);
 
